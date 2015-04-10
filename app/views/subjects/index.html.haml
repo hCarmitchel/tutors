@@ -1,0 +1,23 @@
+%h1 Subjects
+
+%table.subjects-table
+  %tr
+    %th
+    %th
+    %th
+
+  - @subjects.each do |subject|
+    %tr
+      %td= subject.name
+      %td
+        = link_to edit_subject_path(subject) do
+          %i.glyphicon.glyphicon-pencil
+          Edit
+      %td
+        = link_to subject, method: :delete, data: { :confirm => 'Are you sure?' } do
+          %i.glyphicon.glyphicon-remove
+          Destroy
+
+%br
+
+= link_to 'New Subject', new_subject_path, class: 'btn btn-default'

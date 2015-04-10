@@ -1,0 +1,17 @@
+%h1= tutor_name(@tutor)
+%h3 Email
+%p= mail_to @tutor.email
+- if @tutor.school.present?
+  %h3 School
+%p= @tutor.school
+- if @tutor.subjects.size > 0
+  %h3 Subject Expertise
+  %ul
+    - subjects(@tutor).each do |subject|
+      %li= subject
+- if @tutor.website.present?
+  %h3 Website
+  = link_to @tutor.website
+- if @tutor.profile.present?
+  %h3 Profile
+  %p= @tutor.profile

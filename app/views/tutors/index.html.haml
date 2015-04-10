@@ -1,0 +1,16 @@
+.col-lg-6
+  %h1 Tutors
+
+  - if @tutors.size > 0
+    %ul.tutors
+      - @tutors.each do |tutor|
+        %li.tutor=link_to tutor_name(tutor), tutor_url(tutor.id)
+        %li.subjects= subjects_list(tutor)
+        %li.school= tutor.school
+
+    = will_paginate @tutors, renderer: BootstrapPagination::Rails
+  - else
+    %p No tutors found.
+
+.col-lg-4.text-center
+  =image_tag 'group_tutoring.jpg'

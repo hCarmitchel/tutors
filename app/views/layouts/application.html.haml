@@ -1,0 +1,65 @@
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : 'NHS Tutors'
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
+
+
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        =link_to '/', class: 'navbar-brand' do
+          =image_tag 'penn-small.png'
+          NHS Tutors
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav.pull-right
+            %li
+              = form_tag tutors_path, method: 'get', class: 'navbar-form' do
+                = text_field_tag :search, params[:search], class: 'form-bar', placeholder: 'Find tutors..'
+            %li
+              = link_to '/tutors' do
+                Tutor Profiles
+            - if user_signed_in?
+              - if current_user.admin?
+                %li
+                  = link_to '/subjects' do
+                    Subjects
+              %li
+                = link_to edit_user_registration_path do
+                  %i.glyphicon.glyphicon-pencil
+                  Edit profile
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  %i.glyphicon.glyphicon-remove
+                  Log out
+            - else
+              %li
+                = link_to new_user_session_path do
+                  %i.glyphicon.glyphicon-lock
+                  Login
+              %li
+                = link_to new_user_registration_path do
+                  %i.glyphicon.glyphicon-user
+                  Sign up
+    .container
+      .row
+        = bootstrap_flash
+        = yield
+

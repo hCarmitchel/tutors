@@ -1,0 +1,23 @@
+.div.text-center
+  =image_tag 'nhs.jpeg'
+%h1.text-center Welcome to the NHS tutors website!
+
+.div.text-center
+  Students from the <a href="http://www.nhs.us/">National Honor Society (NHS)</a> are available to help students improve their academic skills through the FREE tutoring program.
+
+.row.top-buffer
+  .col-lg-6
+    %h2.text-center Tudors
+
+    %p.text-center= link_to 'Create a profile', new_user_registration_path
+
+    .div.text-center
+      =image_tag 'tutors.jpg'
+
+  .col-lg-6
+    %h2.text-center Students
+
+    %p.text-center= link_to 'Browse Tutors', '/tutors'
+
+    .div.text-center
+      =image_tag 'frustration.jpg'
