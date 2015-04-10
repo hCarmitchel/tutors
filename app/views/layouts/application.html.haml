@@ -39,6 +39,10 @@
             - if user_signed_in?
               - if current_user.admin?
                 %li
+                  = link_to '/appointments' do
+                    Appointments
+              - if current_user.admin?
+                %li
                   = link_to '/subjects' do
                     Subjects
               %li
@@ -63,3 +67,6 @@
         = bootstrap_flash
         = yield
 
+    %footer.footer
+      .container
+        %p.text-muted.text-center Camden Bohn

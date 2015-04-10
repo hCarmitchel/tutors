@@ -12,13 +12,16 @@ class TutorsController < ApplicationController
         "%#{search}%"
         )
     else
-      @tutors = User.where(tutor: true)
+      @tutors = User.tutor
     end
 
     @tutors = @tutors.paginate(page: params[:page], per_page: 10).order('last_name ASC')
   end
 
   def show
-    @tutor = User.where(id: params[:id], tutor: true).first
+    @tutor = User.tutor.where(id: params[:id]).first
+  end
+
+  def calendar
   end
 end

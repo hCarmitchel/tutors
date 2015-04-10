@@ -1,0 +1,27 @@
+%h1 Listing appointments
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Start time
+    %th End time
+    %th User
+    %th
+    %th
+    %th
+
+  - @appointments.each do |appointment|
+    %tr
+      %td= appointment.title
+      %td= appointment.description
+      %td= appointment.start_time
+      %td= appointment.end_time
+      %td= appointment.user_id
+      %td= link_to 'Show', appointment
+      %td= link_to 'Edit', edit_appointment_path(appointment)
+      %td= link_to 'Destroy', appointment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Appointment', new_appointment_path, class: 'btn btn-default'

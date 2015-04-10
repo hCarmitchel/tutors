@@ -4,8 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :appointments
+
   serialize :subjects
   serialize :tutor_types
+
+  scope :tutor, -> { where(tutor: true) }
 
   def all_subjects
     user_subjects = []

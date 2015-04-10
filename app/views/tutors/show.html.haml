@@ -4,7 +4,7 @@
 - if @tutor.school.present?
   %h3 School
 %p= @tutor.school
-- if @tutor.subjects.size > 0
+- if @tutor.subjects.present? && @tutor.subjects.size > 0
   %h3 Subject Expertise
   %ul
     - subjects(@tutor).each do |subject|
@@ -12,6 +12,11 @@
 - if @tutor.website.present?
   %h3 Website
   = link_to @tutor.website
+- if @tutor.tutor_types.present? && @tutor.tutor_types.size > 0
+  %h3 Tutoring Types
+  %ul
+    - tutor_types(@tutor).each do |type|
+      %li= type
 - if @tutor.profile.present?
   %h3 Profile
   %p= @tutor.profile

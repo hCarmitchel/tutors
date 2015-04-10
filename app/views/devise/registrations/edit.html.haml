@@ -11,13 +11,13 @@
         Currently waiting confirmation for: #{resource.unconfirmed_email}
     .form-group
       = f.label :first_name
-      = f.text_field :first_name, class: 'form-control'
+      = f.text_field :first_name, class: 'form-control', required: true
     .form-group
       = f.label :last_name
-      = f.text_field :last_name, class: 'form-control'
+      = f.text_field :last_name, class: 'form-control', required: true
     .form-group
       = f.label :school
-      = f.text_field :school, class: 'form-control'
+      = f.text_field :school, class: 'form-control', required: true
     .form-group
       = f.label :website
       = f.url_field :website, class: 'form-control'
@@ -26,10 +26,10 @@
       = f.telephone_field :phone_number, class: 'form-control'
     .form-group
       = f.label :tutor_types
-      = f.select :tutor_types, options_for_select(tutor_types, resource.tutor_types), {}, {multiple: true, include_blank: true, class: 'form-control'}
+      = f.select :tutor_types, options_for_select(tutoring_types, resource.tutor_types), {include_blank: 'None'}, {multiple: true, class: 'form-control'}
     .form-group
       = f.label :subjects
-      = f.select :subjects, options_from_collection_for_select(Subject.all, :name, :name, resource.all_subjects), {}, {multiple: true, include_blank: true, class: 'form-control'}
+      = f.select :subjects, options_from_collection_for_select(Subject.all, :name, :name, resource.all_subjects), {include_blank: 'None'}, {multiple: true, class: 'form-control'}
     .form-group
       = f.label :tutor
       = f.check_box :tutor

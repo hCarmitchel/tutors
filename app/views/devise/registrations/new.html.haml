@@ -7,13 +7,13 @@
       = f.email_field :email, autofocus: true, class: 'form-control'
     .form-group
       = f.label :first_name
-      = f.text_field :first_name, class: 'form-control'
+      = f.text_field :first_name, class: 'form-control', required: true
     .form-group
       = f.label :last_name
-      = f.text_field :last_name, class: 'form-control'
+      = f.text_field :last_name, class: 'form-control', required: true
     .form-group
       = f.label :school
-      = f.text_field :school, class: 'form-control'
+      = f.text_field :school, class: 'form-control', required: true
     .form-group
       = f.label :website
       = f.url_field :website, class: 'form-control'
@@ -22,10 +22,10 @@
       = f.telephone_field :phone_number, class: 'form-control'
     .form-group
       = f.label :tutor_types
-      = f.select :tutor_types, tutor_types, {}, {multiple: true, include_blank: true, class: 'form-control'}
+      = f.select :tutor_types, tutoring_types, {include_blank: 'None'}, {multiple: true, class: 'form-control'}
     .form-group
       = f.label :subjects
-      = f.select :subjects, Subject.all.collect {|p| [ p.name, p.name ]}, {}, {multiple: true, include_blank: true, class: 'form-control'}
+      = f.select :subjects, Subject.all.collect {|p| [ p.name, p.name ]}, {include_blank: 'None'}, {multiple: true, class: 'form-control'}
     .form-group
       = f.label :tutor
       = f.check_box :tutor

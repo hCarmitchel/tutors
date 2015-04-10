@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @appointment.title
+%p
+  %b Description:
+  = @appointment.description
+%p
+  %b Start time:
+  = @appointment.start_time
+%p
+  %b End time:
+  = @appointment.end_time
+%p
+  %b User:
+  = @appointment.user_id
+
+= link_to 'Edit', edit_appointment_path(@appointment), class: 'btn btn-default'
+\|
+= link_to 'Back', appointments_path, class: 'btn btn-default'
