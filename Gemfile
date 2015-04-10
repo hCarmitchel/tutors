@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '0.18.0.pre20141117110243'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,7 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'fullcalendar-rails', '~> 2.3.1'
 gem 'momentjs-rails'
-gem 'therubyracer'
+
+group :production do
+  gem 'therubyracer-heroku', :platform => :ruby
+end
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
