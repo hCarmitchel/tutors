@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create! first_name: 'admin', last_name: 'admin', email: 'heathercarmitchel@gmail.com', password: '14ml33715h', password_confirmation: '14ml33715h', admin: true
+User.create! first_name: 'admin', last_name: 'admin', email: 'cbohn40@phm.k12.in.us', password: 'camdenbohn10', password_confirmation: 'camdenbohn10', admin: true
 Subject.create!([{ name: 'Math' }, { name: 'Science' }, { name: 'English' }])
