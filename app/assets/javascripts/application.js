@@ -12,12 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require twitter/bootstrap
 //= require turbolinks
 //= require moment
 //= require fullcalendar
 //= require_tree .
-
-$(document).ready(function() {
-  $('#calendar').fullCalendar({events: '/appointments.json'});
-});

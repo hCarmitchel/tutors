@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
+    @tutor_appointments = current_user ? Appointment.where(user_id: current_user.id) : Appointment.all
     @appointments = Appointment.all
   end
 
@@ -69,6 +70,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:title, :description, :start_time, :end_time, :user_id)
+      params.require(:appointment).permit(:title, :description, :start_time, :end_time, :user_id, :subject_id, :location, :tutor_type)
     end
 end

@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 group :development, :test do
   gem 'sqlite3'
 end
+
 group :production do
   gem 'newrelic_rpm'
   gem 'le'
@@ -36,7 +37,8 @@ gem 'momentjs-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
-
+gem 'jquery-datatables-rails', '~> 3.2.0'
+gem 'date_validator', '~> 0.7.1'
 gem 'devise'
 
 gem 'will_paginate-bootstrap', '~> 1.0.1'

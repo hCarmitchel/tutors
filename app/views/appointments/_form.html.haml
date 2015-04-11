@@ -1,14 +1,17 @@
 = form_for @appointment do |f|
-  - if @appointment.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@appointment.errors.count, "error")} prohibited this appointment from being saved:"
-      %ul
-        - @appointment.errors.full_messages.each do |msg|
-          %li= msg
-
+  = f.hidden_field :user_id, value: current_user.id
   .form-group
     = f.label :title
-    = f.text_field :title, class: 'form-control', required: true
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :location
+    = f.text_field :location, class: 'form-control'
+  .form-group
+    = f.label :tutoring_type
+    = f.select :tutor_type, tutoring_types, {include_blank: 'None'}, {class: 'form-control'}
+  .form-group
+    = f.label :subject
+    = f.select :subject_id, Subject.all.collect {|p| [ p.name, p.id ]}, {include_blank: 'None'}, {class: 'form-control'}
   .form-group
     = f.label :description
     = f.text_area :description, class: 'form-control'
@@ -18,8 +21,5 @@
   .form-group
     = f.label :end_time
     = f.datetime_select :end_time, class: 'form-control'
-  .form-group
-    = f.label :user_id
-    = f.number_field :user_id
   .actions
     = f.submit 'Save', class: 'btn btn-default'

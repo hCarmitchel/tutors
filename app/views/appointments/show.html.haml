@@ -1,11 +1,21 @@
-%p#notice= notice
+%h1= @appointment.title
 
-%p
-  %b Title:
-  = @appointment.title
-%p
-  %b Description:
-  = @appointment.description
+- if @appointment.description.present?
+  %p
+    %b Description:
+    = @appointment.description
+- if @appointment.location.present?
+  %p
+    %b Location:
+    = @appointment.location
+- if @appointment.tutor_type.present?
+  %p
+    %b Study Type:
+    = @appointment.tutor_type
+- if @appointment.subject.present?
+  %p
+    %b Subject:
+    = @appointment.subject.name
 %p
   %b Start time:
   = @appointment.start_time
@@ -13,9 +23,9 @@
   %b End time:
   = @appointment.end_time
 %p
-  %b User:
-  = @appointment.user_id
+  %b Tutor:
+  = link_to @appointment.tutor.name, @appointment.tutor
 
-= link_to 'Edit', edit_appointment_path(@appointment), class: 'btn btn-default'
-\|
+- if current_user && current_user.id == @appointment.user_id
+  = link_to 'Edit', edit_appointment_path(@appointment), class: 'btn btn-default'
 = link_to 'Back', appointments_path, class: 'btn btn-default'

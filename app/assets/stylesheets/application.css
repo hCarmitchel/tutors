@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_self
  *= require fullcalendar
  */
@@ -91,5 +92,12 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 30px;
+}
+
+td {
+  min-width: 100px;
+}
+.fc-content:hover {
+  background-color: #3a87ad;
 }
 

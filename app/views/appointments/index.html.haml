@@ -1,27 +1,32 @@
-%h1 Listing appointments
+%h1 Tutoring Sessions
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Start time
-    %th End time
-    %th User
-    %th
-    %th
-    %th
-
-  - @appointments.each do |appointment|
+%table.table-striped.table-bordered{id: 'appointments'}
+  %thead
     %tr
-      %td= appointment.title
-      %td= appointment.description
-      %td= appointment.start_time
-      %td= appointment.end_time
-      %td= appointment.user_id
-      %td= link_to 'Show', appointment
-      %td= link_to 'Edit', edit_appointment_path(appointment)
-      %td= link_to 'Destroy', appointment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Title
+      %th Description
+      %th Start time
+      %th End time
+      %th Tutor
+      %th Subject
+      %th Actions
 
-%br
+  %tbody
+    - @tutor_appointments.each do |appointment|
+      %tr
+        %td= link_to appointment.title, appointment
+        %td= appointment.description
+        %td= appointment.start_time
+        %td= appointment.end_time
+        %td= link_to appointment.tutor.name, appointment.tutor
+        %td
+          - if appointment.subject
+            = link_to appointment.subject.name, appointment.subject
+        %td
+          - if current_user && current_user.tutor && !current_user.admin?
+            = link_to 'Edit', edit_appointment_path(appointment)
+          - if current_user && current_user.tutor
+            = link_to 'Destroy', appointment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Appointment', new_appointment_path, class: 'btn btn-default'
+- unless current_user.nil? || current_user.admin?
+  = link_to 'New Tutoring Session', new_appointment_path, class: 'btn btn-default'

@@ -4,7 +4,7 @@
   - if @tutors.size > 0
     %ul.tutors
       - @tutors.each do |tutor|
-        %li.tutor=link_to tutor_name(tutor), tutor_url(tutor.id)
+        %li.tutor=link_to tutor.name, tutor_url(tutor.id)
         %li.subjects= subjects_list(tutor)
         %li.school= tutor.school
 

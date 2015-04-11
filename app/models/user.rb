@@ -4,12 +4,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :appointments
-
   serialize :subjects
   serialize :tutor_types
 
   scope :tutor, -> { where(tutor: true) }
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :school, presence: true
+
+  def name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 
   def all_subjects
     user_subjects = []

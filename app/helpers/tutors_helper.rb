@@ -1,8 +1,4 @@
 module TutorsHelper
-  def tutor_name(tutor)
-    tutor.present? ? "#{tutor.first_name.capitalize} #{tutor.last_name.capitalize}" : ''
-  end
-
   def subjects_list(tutor)
     subjects(tutor).join(', ')
   end

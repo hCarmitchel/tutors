@@ -2,9 +2,9 @@ class TutorsController < ApplicationController
 
   def index
     if params[:search]
-      search = params[:search]
+      search = params[:search].downcase
       @tutors = User.where(
-        '(first_name LIKE ? OR last_name LIKE ? OR school LIKE ? OR subjects LIKE ? OR tutor_types LIKE ?) AND tutor is TRUE',
+        '(lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(school) LIKE ? OR subjects LIKE ? OR tutor_types LIKE ?) AND tutor is TRUE',
         "%#{search}%",
         "%#{search}%",
         "%#{search}%",

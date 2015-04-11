@@ -1,2 +1,3 @@
-class Tutor < ActiveRecord::Base
+class Tutor < User
+  has_many :appointments
 end

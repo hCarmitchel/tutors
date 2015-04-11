@@ -1,4 +1,4 @@
-%h1= tutor_name(@tutor)
+%h1= @tutor.name
 %h3 Email
 %p= mail_to @tutor.email
 - if @tutor.school.present?
