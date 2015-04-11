@@ -4,6 +4,6 @@ class AddWebsiteToUsers < ActiveRecord::Migration
     add_column :users, :website, :string
     add_column :users, :phone_number, :string
     add_column :users, :tutor_types, :bytea
-    add_column :users, :admin, :boolean, default: 0
+    add_column :users, :admin, :boolean, default: false
   end
 end
