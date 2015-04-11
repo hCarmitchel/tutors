@@ -8,6 +8,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
+  gem 'newrelic_rpm'
   gem 'le'
   gem 'pg'
 end
