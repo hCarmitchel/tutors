@@ -4,7 +4,7 @@ class TutorsController < ApplicationController
     if params[:search]
       search = params[:search]
       @tutors = User.where(
-        '(first_name LIKE ? OR last_name LIKE ? OR school LIKE ? OR subjects LIKE ? OR tutor_types LIKE ?) AND tutor = "t"',
+        '(first_name LIKE ? OR last_name LIKE ? OR school LIKE ? OR subjects LIKE ? OR tutor_types LIKE ?) AND tutor is TRUE',
         "%#{search}%",
         "%#{search}%",
         "%#{search}%",
