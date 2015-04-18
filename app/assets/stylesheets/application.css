@@ -12,8 +12,9 @@
  *
  *= require_tree .
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
- *= require_self
  *= require fullcalendar
+ *= require bootstrap-datetimepicker
+ *= require_self
  */
 
 @import url("//fonts.googleapis.com/css?family=Lato:300,400,700");
@@ -32,39 +33,23 @@ select {
   color: black;
 }
 
-.tutors {
-  list-style: none;
-  font-size: 20px;
-}
-
-.school, .subjects {
-  padding-left: 20px;
-  font-size: 16px;
-}
-
 .form-bar {
   margin-top: 7px;
   width: 180px;
 }
 
-td {
+table.dataTable {
+  margin: 60px 0 !important;
+  font-size: 16px;
+}
+
+.dataTable td, .datatable th {
+  min-width: 100px;
   padding: 10px;
 }
 
-li > a:visited {
+a, a:hover, table.dataTable a {
   color: #df691a;
-}
-
-.text-center a {
-  color: #df691a
-}
-
-.tutor {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-a, a:hover {
   text-decoration: none !important;
 }
 
@@ -82,7 +67,6 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 30px;
 }
 
@@ -90,14 +74,23 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 30px;
 }
 
-td {
-  min-width: 100px;
-}
-.fc-content:hover {
+/* Ensure calendar events retain background color */
+.fc-content:hover, .fc-event-container a:hover {
   background-color: #3a87ad;
 }
 
+/* Recolor datepicker contents for scheme */
+.bootstrap-datetimepicker-widget td:hover, a.btn:hover {
+  color: #df691a;
+}
+
+.group-tutoring {
+  margin-top: 75px;
+}
+
+.dropdown-menu {
+  position: absolute;
+}

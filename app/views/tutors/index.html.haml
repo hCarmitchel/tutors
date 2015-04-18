@@ -1,16 +1,21 @@
-.col-lg-6
+.col-lg-8
   %h1 Tutors
 
-  - if @tutors.size > 0
-    %ul.tutors
+  %table.table-striped.table-bordered{id: 'tutors'}
+    %thead
+      %tr
+        %th Name
+        %th Tutoring Types
+        %th Subjects
+        %th School
+
+    %tbody
       - @tutors.each do |tutor|
-        %li.tutor=link_to tutor.name, tutor_url(tutor.id)
-        %li.subjects= subjects_list(tutor)
-        %li.school= tutor.school
+        %tr
+          %td= link_to tutor.name, tutor_url(tutor.id)
+          %td= tutor.tutoring_types
+          %td= subjects_list(tutor)
+          %td= tutor.school
 
-    = will_paginate @tutors, renderer: BootstrapPagination::Rails
-  - else
-    %p No tutors found.
-
-.col-lg-4.text-center
+.col-lg-4.text-center.group-tutoring
   =image_tag 'group_tutoring.jpg'

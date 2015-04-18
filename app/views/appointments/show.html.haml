@@ -18,10 +18,16 @@
     = @appointment.subject.name
 %p
   %b Start time:
-  = @appointment.start_time
+  = @appointment.start_date
 %p
   %b End time:
-  = @appointment.end_time
+  = @appointment.end_date
+%p
+  %b Capacity:
+  = @appointment.capacity
+%p
+  %b Current Enrollment:
+  = @appointment.current_capacity
 %p
   %b Tutor:
   = link_to @appointment.tutor.name, @appointment.tutor

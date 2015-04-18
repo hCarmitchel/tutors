@@ -20,3 +20,10 @@
 - if @tutor.profile.present?
   %h3 Profile
   %p= @tutor.profile
+
+- if @tutor.appointments
+  %h3 Tutoring Sessions
+  - @tutor.appointments.each do |appointment|
+    %p= appointment.title
+    %p= appointment.date
+

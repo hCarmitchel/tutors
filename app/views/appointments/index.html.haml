@@ -16,17 +16,19 @@
       %tr
         %td= link_to appointment.title, appointment
         %td= appointment.description
-        %td= appointment.start_time
-        %td= appointment.end_time
+        %td= appointment.start_date
+        %td= appointment.end_date
         %td= link_to appointment.tutor.name, appointment.tutor
         %td
           - if appointment.subject
             = link_to appointment.subject.name, appointment.subject
         %td
           - if current_user && current_user.tutor && !current_user.admin?
-            = link_to 'Edit', edit_appointment_path(appointment)
+            = link_to edit_appointment_path(appointment) do
+              %i.glyphicon.glyphicon-pencil
           - if current_user && current_user.tutor
-            = link_to 'Destroy', appointment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = link_to appointment, method: :delete, data: { confirm: 'Are you sure?' } do
+              %i.glyphicon.glyphicon-remove
 
 - unless current_user.nil? || current_user.admin?
   = link_to 'New Tutoring Session', new_appointment_path, class: 'btn btn-default'

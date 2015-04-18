@@ -6,6 +6,6 @@
       = f.label :email
       = f.email_field :email, autofocus: true, class: 'form-control'
     .actions
-      = f.submit "Send me reset password instructions", class: 'btn btn-default'
+      = f.submit 'Send me reset password instructions', class: 'btn btn-success'
   .pull-right
-    = render "devise/shared/links"
+    = render 'devise/shared/links'

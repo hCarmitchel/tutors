@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :school, presence: true
+
+  def tutoring_types
+    tutor_types.delete_if(&:empty?).join(', ')
+  end
 
   def name
     "#{first_name.capitalize} #{last_name.capitalize}"
