@@ -17,7 +17,7 @@
  *= require_self
  */
 
-@import url("//fonts.googleapis.com/css?family=Lato:300,400,700");
+@import url('//fonts.googleapis.com/css?family=Lato:300,400,700');
 
 /*!
  * bootswatch v3.3.4+1
@@ -33,17 +33,16 @@ select {
   color: black;
 }
 
-.form-bar {
-  margin-top: 7px;
-  width: 180px;
-}
-
 table.dataTable {
   margin: 60px 0 !important;
   font-size: 16px;
 }
 
-.dataTable td, .datatable th {
+.dataTable thead {
+  background-color: #4e5d6c;
+}
+
+.dataTable td, .dataTable th {
   min-width: 100px;
   padding: 10px;
 }
@@ -77,13 +76,18 @@ body {
   height: 30px;
 }
 
+.main {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 /* Ensure calendar events retain background color */
 .fc-content:hover, .fc-event-container a:hover {
   background-color: #3a87ad;
 }
 
 /* Recolor datepicker contents for scheme */
-.bootstrap-datetimepicker-widget td:hover, a.btn:hover {
+.bootstrap-datetimepicker-widget td:hover, a.btn:hover, th.picker-switch:hover {
   color: #df691a;
 }
 
@@ -91,6 +95,6 @@ body {
   margin-top: 75px;
 }
 
-.dropdown-menu {
-  position: absolute;
+.form-group {
+  position: relative;
 }

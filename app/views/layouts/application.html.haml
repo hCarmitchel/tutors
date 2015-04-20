@@ -6,7 +6,7 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= content_for?(:title) ? yield(:title) : 'NHS Tutors'
     = csrf_meta_tags
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag 'application', media: 'all'
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '144x144'
     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '114x114'
     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '72x72'
@@ -20,7 +20,7 @@
 
   %body
     .navbar.navbar-default.navbar-static-top
-      .container
+      .container-fluid
         %button.navbar-toggle(type='button' data-toggle='collapse' data-target='.navbar-responsive-collapse')
           %span.icon-bar
           %span.icon-bar
@@ -29,10 +29,10 @@
           =image_tag 'penn-small.png'
           NHS Tutors
         .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav.pull-right
+          %ul.nav.navbar-nav.navbar-right
             %li
-              = form_tag tutors_path, method: 'get', class: 'navbar-form' do
-                = text_field_tag :search, params[:search], class: 'form-bar', placeholder: 'Find tutors..'
+              = form_tag tutors_path, method: 'get', class: 'navbar-form navbar-right' do
+                = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Find tutors..'
             %li
               = link_to '/tutors' do
                 Tutors
@@ -64,11 +64,11 @@
                 = link_to new_user_registration_path do
                   %i.glyphicon.glyphicon-user
                   Sign up
-    .container
-      .row
+    .container-fluid
+      .row.main
         = bootstrap_flash
         = yield
 
     %footer.footer
-      .container
+      .container-fluid
         %p.text-muted.text-center Camden Bohn, Lauren Janicki, Amanda Ahmed, Ben Knutson

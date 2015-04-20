@@ -10,9 +10,13 @@ $(document).on('ready page:load', function(){
   $('#start_time').datetimepicker({minDate: moment(), sideBySide: true, stepping: 5, format: 'YYYY-MM-DD hh:mm'});
   $('#end_time').datetimepicker({minDate: moment(), sideBySide: true, stepping: 5, format: 'YYYY-MM-DD hh:mm'});
   $('#start_time').on('dp.change', function (e) {
-    $('#end_time').data('DateTimePicker').minDate(e.date);
+    if (e.date != null) {
+      $('#end_time').data('DateTimePicker').minDate(e.date);
+    }
   });
   $('#end_time').on('dp.change', function (e) {
-    $('#start_time').data('DateTimePicker').maxDate(e.date);
+    if (e.date != null) {
+      $('#start_time').data('DateTimePicker').maxDate(e.date);
+    }
   });
 });
